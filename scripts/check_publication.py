@@ -17,14 +17,11 @@ for name in manifest["files"]:
     assert not re.search(r"\{(?:base_url|welcome|continuation|calling|confidentiality|build)\}", text), name
     assert "Playbook build" not in text, name
     assert "Confidential playbook" not in text, name
-    if not name.startswith("dev/"):
-        assert "dev-hiring-api.usenova.work" not in text, name
-    else:
-        assert "https://hiring-api.usenova.work" not in text, name
+    assert not name.startswith("dev/"), name
     for match in re.finditer(re.escape(raw) + r"([A-Za-z0-9_./-]+)", text):
         target = match[1].rstrip(".")
         assert (root / target).is_file(), f"Broken link in {name}: {target}"
-for prefix in ("", "dev/"):
+for prefix in ("",):
     index = json.loads((root / prefix / "index.json").read_text())
     assert len([p for p in index["assets"] if p.startswith("skills/")]) == 13
     hosts = json.loads((root / prefix / "hosts.json").read_text())["data"]
@@ -40,7 +37,9 @@ for name in filter(None, tracked):
     assert not any(part in {".env", ".env.local", ".env.production", "terraform.tfstate"} for part in Path(name).parts), name
     if name == "scripts/check_publication.py":
         continue  # Scanner definitions contain the markers they detect.
+    assert not name.startswith("dev/"), name
     text = (root / name).read_text()
+    assert not re.search(r"https?://dev[-.][^/\s]+|nova-job-search/main/dev/", text), f"Non-production URL in {name}"
     forbidden = (
         r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----",
         r"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b",

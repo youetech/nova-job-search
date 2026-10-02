@@ -24,4 +24,4 @@ Prefer AWS IoT Core MQTT wake-ups after claim when your host has a persistent PO
 
 Verify connection, real wake delivery, reconnect catch-up and credential renewal before retiring frequent scheduled polling. The listener retains quiet recovery reads about every 15 minutes to catch missed events. If the host cannot run it, or MQTT is unavailable, use supported feed/heartbeat checks when scheduled or when the human returns. Never claim continuous operation without a running listener and working host wake command.
 
-Production is the default. Use [dev guides](https://raw.githubusercontent.com/youetech/nova-job-search/main/dev/index.json) only when explicitly asked to work in Nova dev, with separate dev credentials. If the host cannot use the required API or MCP connection, explain the concrete setup limitation.
+If the host cannot use the required API or MCP connection, explain the concrete setup limitation.
