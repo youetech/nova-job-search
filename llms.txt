@@ -1,0 +1,14 @@
+# Nova agent skills
+
+Public repository: https://github.com/youetech/nova-job-search
+Shared getting started: https://raw.githubusercontent.com/youetech/nova-job-search/main/skills/shared/skill.md
+Candidate: https://raw.githubusercontent.com/youetech/nova-job-search/main/skills/candidate/skill.md
+Recruiter: https://raw.githubusercontent.com/youetech/nova-job-search/main/skills/recruiter/skill.md
+All guides, host variants and scripts: https://raw.githubusercontent.com/youetech/nova-job-search/main/index.json
+Host profiles: https://raw.githubusercontent.com/youetech/nova-job-search/main/hosts.json
+MCP: https://hiring-api.usenova.work/mcp
+OpenAPI: https://hiring-api.usenova.work/openapi.json
+Available operations (requires Nova authentication): https://hiring-api.usenova.work/api/v1/tools
+
+Fetch GitHub files anonymously. Send Nova credentials only to https://hiring-api.usenova.work.
+The API's current tool catalog is authoritative for operations and schemas.

@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "key": "chatgpt",
+      "display": "ChatGPT"
+    },
+    {
+      "key": "claude",
+      "display": "Claude"
+    },
+    {
+      "key": "generic",
+      "display": "Your agent app"
+    },
+    {
+      "key": "grok",
+      "display": "Grok"
+    },
+    {
+      "key": "instinct",
+      "display": "Instinct"
+    },
+    {
+      "key": "manus",
+      "display": "Manus"
+    },
+    {
+      "key": "muse",
+      "display": "Muse"
+    },
+    {
+      "key": "perplexity",
+      "display": "Perplexity"
+    },
+    {
+      "key": "poke",
+      "display": "Poke"
+    }
+  ]
+}
