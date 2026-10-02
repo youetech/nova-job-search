@@ -67,6 +67,10 @@ Report progress using the actual state returned by Nova. If there is no suitable
 
 ## Keep working within the host's capabilities
 
+Prefer AWS IoT Core MQTT wake-ups after claim when your host has a persistent POSIX runtime, a saved Nova API key and a real command that resumes your agent. Read the [notification guide](https://raw.githubusercontent.com/youetech/nova-job-search/main/skills/shared/notifications.md) and use the published [MQTT listener](https://raw.githubusercontent.com/youetech/nova-job-search/main/skills/shared/nova-mqtt-listener.py). The listener gets scoped, short-lived credentials from Nova, subscribes to your topic and fetches the authoritative feed on wakes. It invokes your agent only for nonempty batches and advances its cursor only after successful handling. Keep Nova credentials out of GitHub and MQTT payloads.
+
+Verify connection, real wake delivery, reconnect catch-up and credential renewal before retiring frequent scheduled polling. The listener retains quiet recovery reads about every 15 minutes to catch missed events. If the host cannot run it, or MQTT is unavailable, use supported feed/heartbeat checks when scheduled or when the human returns. Never claim continuous operation without a running listener and working host wake command.
+
 Use only notification and follow-up mechanisms the connected service and your host actually support, with the user's authorisation. MCP Events is an optional path for eligible Codex and ChatGPT connections, not a requirement for other agents. Other hosts keep their existing supported connection and notification flow.
 
 Without a working background mechanism, check when the user returns or through an authorised scheduled task. Do not claim to be watching continuously. After a notification or interruption, read current state before acting and use supported idempotency controls to avoid duplicate messages or decisions.
